@@ -60,6 +60,7 @@ function showRiddle() {
   const answerParagraphElement = document.createElement("p");
 
   questionParagraphElement.textContent = randomRiddle.question;
+  questionParagraphElement.setAttribute("id", "riddle-question");
   answerParagraphElement.textContent = randomRiddle.answer;
   answerParagraphElement.setAttribute("id", "riddle-answer");
   answerParagraphElement.hidden = true;
@@ -69,12 +70,14 @@ function showRiddle() {
 }
 
 // Reveals the ANSWER of the RIDDLE on the screen
-function revealAnswers() {
+function revealAnswer() {
+  const riddleQuestion = document.querySelector("#riddle-answer");
   const riddleAnswer = document.querySelector("#riddle-answer");
-  if (!riddleAnswer) {
-    alert("No Riddle to display Answer!");
+
+  if (!riddleQuestion) {
+    alert("No Riddle to Reveal Answer for!");
   } else if (!riddleAnswer.hidden) {
-    alert("Answer is already displayed!");
+    alert("Answer is already Revealed!");
   } else {
     riddleAnswer.hidden = false;
   }
